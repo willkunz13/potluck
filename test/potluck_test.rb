@@ -9,6 +9,9 @@ class PotluckTest < Minitest::Test
 		@potluck = Potluck.new("7-13-18")
 		@couscous_salad = Dish.new("Couscous Salad", :appetizer)
 		@cocktail_meatballs = Dish.new("Cocktail Meatballs", :entre)
+		@summer_pizza = Dish.new("Summer Pizza", :appetizer)
+		@roast_pork = Dish.new("Roast Pork", :entre)
+		@candy_salad = Dish.new("Candy Salad", :dessert)
 	end
 
 	def test_it_exists
@@ -27,7 +30,22 @@ class PotluckTest < Minitest::Test
 		assert_equal @potluck.add(@couscous_salad), @potluck.dishes
 		assert(@potluck.add(@cocktail_meatballs))
 		assert_equal @potluck.dishes.length, 2
+		@potluck.add(@summer_pizza)
+		@potluck.add(@roast_pork)
+		@potluck.add(@candy_salad)
 	end
+
+	def test_gest_all_from_category
+		@potluck.add(@couscous_salad)
+		@potluck.add(@cocktail_meatballs)
+		@potluck.add(@summer_pizza)
+                @potluck.add(@roast_pork)
+                @potluck.add(@candy_salad)
+		assert(@potluck.get_all_from_category(:appetizer)
+		assert_equal @potluck.get_all_from_category\
+(:appetizer).first.name, "Couscous Salad"
+	end
+
 end
 
 	
