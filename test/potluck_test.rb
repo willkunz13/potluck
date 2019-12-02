@@ -12,7 +12,7 @@ class PotluckTest < Minitest::Test
 	end
 
 	def test_it_exists
-		assert_instance_of @potluck, Potluck
+		assert_instance_of Potluck, @potluck
 	end
 
 	def test_date
@@ -20,13 +20,13 @@ class PotluckTest < Minitest::Test
 	end
 
 	def test_dishes
-		assert_equal [], potluck.dishes
+		assert_equal [], @potluck.dishes
 	end
 
 	def test_add
 		assert_equal @potluck.add(@couscous_salad), @potluck.dishes
-		assert(@potluck.add(@cocktail_meatballs)
-		assert_equal @potluck.dishes.lenght, 2
+		assert(@potluck.add(@cocktail_meatballs))
+		assert_equal @potluck.dishes.length, 2
 	end
 end
 
