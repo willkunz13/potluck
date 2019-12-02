@@ -35,15 +35,14 @@ class PotluckTest < Minitest::Test
 		@potluck.add(@candy_salad)
 	end
 
-	def test_gest_all_from_category
+	def test_get_all_from_category
 		@potluck.add(@couscous_salad)
 		@potluck.add(@cocktail_meatballs)
 		@potluck.add(@summer_pizza)
                 @potluck.add(@roast_pork)
                 @potluck.add(@candy_salad)
-		assert(@potluck.get_all_from_category(:appetizer)
-		assert_equal @potluck.get_all_from_category\
-(:appetizer).first.name, "Couscous Salad"
+		assert(@potluck.get_all_from_category(:appetizer))
+		assert_equal @potluck.get_all_from_category(:appetizer).first.name, "Couscous Salad"
 	end
 
 end
