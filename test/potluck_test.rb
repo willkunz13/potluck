@@ -12,6 +12,7 @@ class PotluckTest < Minitest::Test
 		@summer_pizza = Dish.new("Summer Pizza", :appetizer)
 		@roast_pork = Dish.new("Roast Pork", :entre)
 		@candy_salad = Dish.new("Candy Salad", :dessert)
+		@bean_dip = Dish.new("Bean Dip", :appetizer)
 	end
 
 	def test_it_exists
@@ -43,6 +44,27 @@ class PotluckTest < Minitest::Test
                 @potluck.add(@candy_salad)
 		assert(@potluck.get_all_from_category(:appetizer))
 		assert_equal @potluck.get_all_from_category(:appetizer).first.name, "Couscous Salad"
+	end
+
+	def test_menu
+		@potluck.add(@couscous_salad)
+                @potluck.add(@cocktail_meatballs)
+                @potluck.add(@summer_pizza)
+                @potluck.add(@roast_pork)
+                @potluck.add(@candy_salad)
+		@potluck.add(@bean_dip)
+		assert(@potluck.menu)
+	end
+
+	def test_ratio
+		@potluck.add(@couscous_salad)
+                @potluck.add(@cocktail_meatballs)
+                @potluck.add(@summer_pizza)
+                @potluck.add(@roast_pork)
+                @potluck.add(@candy_salad)
+                @potluck.add(@bean_dip)
+                assert(@potluck.menu)
+		assert_equal 50.0, @potluck.ratio(:appetizer)
 	end
 
 end
